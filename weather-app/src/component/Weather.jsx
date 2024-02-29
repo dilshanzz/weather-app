@@ -1,4 +1,11 @@
+
 function Weather() {
+let api = "7feba465acef36f12dc3c8e8d685e9fd"
+
+function search(){
+    
+}
+
     return (
         <div className="container-fluid">
             <div className="container mt-4 col-6 ">
@@ -11,6 +18,14 @@ function Weather() {
                 <div className=" col-2" >
                     <button className="btn btn-primary ml-1">Search</button>
                 </div>
+                <div className="container ">
+                    <div className="temp  mt-4 ">24°C</div>
+                    <div className="loc ">London</div>
+                    <div className="humidity">Humidity</div>
+                    <div className="wind">Wind Speed</div>
+
+                </div>
+
             </div>
         </div>
     )
