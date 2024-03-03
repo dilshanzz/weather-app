@@ -1,6 +1,9 @@
 import "./Weather.css";
 import sunny from "../assets/sunny_6092898.png";
 import serch from "../assets/find_12363627.png";
+import temp from "../assets/temp.png";
+import wind from "../assets/wind.png";
+import hum from "../assets/hum.png";
 import { useEffect, useState } from "react";
 
 function Weather() {
@@ -98,18 +101,21 @@ function Weather() {
                     <div className="row">
                         <div className="col-2"></div>
                         <div className="container temp  col-10 mb-4">
+                            <img className="img-sub" src={temp} alt="" />
                             The Current tempreature is {data.celcius}°C
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-2"></div>
                         <div className="container temp  col-10 mb-4">
+                            <img className="img-sub" src={wind} alt="" />
                             The Current windspeed is {data.windSpeed} kph
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-2"></div>
                         <div className="container temp  col-10 mb-4">
+                            <img className="img-sub" src={hum} alt="" />
                             The Current humidity is {data.humidity}
                         </div>
                     </div>
