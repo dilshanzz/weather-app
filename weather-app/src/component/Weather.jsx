@@ -9,9 +9,9 @@ import { useEffect, useState } from "react";
 function Weather() {
 
     const [data, setData] = useState({
-        icon:sunny,
+        icon: sunny,
         celcius: 0,
-        name: "London",
+        name: "",
         humidity: 0,
         windSpeed: 0
     });
@@ -24,7 +24,7 @@ function Weather() {
             setLocation(cityInput.value);
         }
     };
-   
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -40,11 +40,11 @@ function Weather() {
                 const resData = await res.json();
 
                 setData({
-                    icon:`https:${resData.current.condition.icon}`,
+                    icon: `https:${resData.current.condition.icon}`,
                     celcius: resData.current.temp_c,
-                    name:  resData.location.name,
-                    humidity:  resData.current.humidity,
-                    windSpeed:  resData.current.wind_kph,
+                    name: resData.location.name,
+                    humidity: resData.current.humidity,
+                    windSpeed: resData.current.wind_kph,
                 });
 
             } catch (e) {
@@ -58,72 +58,72 @@ function Weather() {
         }
     }, [location]);
 
-   
+
 
 
     return (
-        <div className="main container  ">
+        
+            <div className="main container-fluid  ">
 
-            <div className="container col-4">
-                <div className="row col-3 "></div>
-            </div>
+               
 
-            <div className="container weather-con col-9  ">
-                <div className="row mb-5"></div>
+                <div className="container weather-con col-3  ">
+                    <div className="row mb-5"></div>
 
-                <div className="row ">
-                    <div className="container  "></div>
-                    <div className="col-3"></div>
-                    <div className="col-5">
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="city-input"
-                            placeholder="Enter city name" />
+                    <div className="row ">
+                        <div className="container  "></div>
+                        <div className="col-3"></div>
+                        <div className="col-5">
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="city-input"
+                                placeholder="Enter city name" />
 
-                    </div>
-                    <div className="container col-4">
-                        <button className="btn btn-primary mb-4" 
-                         onClick={citySearch}>
-                            <img className="s-img" src={serch} alt="search"/>
-                        </button>
-                    </div>
-                    <div >
-                        <div className="row">
-                            <div className="col-2"></div>
-                            <div className="container   col-10 mb-4">
-                                <img className="img" src={data.icon} alt="" />
+                        </div>
+                        <div className="container col-4">
+                            <button className="btn btn-primary mb-4"
+                                onClick={citySearch}>
+                                <img className="s-img" src={serch} alt="search" />
+                            </button>
+                        </div>
+                        <div >
+                            <div className="row">
+                                <div className="col-2"></div>
+                                <div className="container   col-10 mb-4">
+                                    <img className="img" src={data.icon} alt="" />
+                                </div>
                             </div>
                         </div>
-                    </div>
 
 
-                    <div className="row">
-                        <div className="col-2"></div>
-                        <div className="container temp  col-10 mb-4">
-                            <img className="img-sub" src={temp} alt="" />
-                            The Current tempreature is {data.celcius}°C
+                        <div className="row">
+                            <div className="col-2"></div>
+                            <div className="container temp  col-10 mb-4">
+                                <img className="img-sub" src={temp} alt="" />
+                                Tempreature is {data.celcius}°C
+                            </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-2"></div>
-                        <div className="container temp  col-10 mb-4">
-                            <img className="img-sub" src={wind} alt="" />
-                            The Current windspeed is {data.windSpeed} kph
+                        <div className="row">
+                            <div className="col-2"></div>
+                            <div className="container temp  col-10 mb-4">
+                                <img className="img-sub" src={wind} alt="" />
+                                Windspeed is {data.windSpeed} kph
+                            </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-2"></div>
-                        <div className="container temp  col-10 mb-4">
-                            <img className="img-sub" src={hum} alt="" />
-                            The Current humidity is {data.humidity}
+                        <div className="row">
+                            <div className="col-2"></div>
+                            <div className="container temp  col-10 mb-4">
+                                <img className="img-sub" src={hum} alt="" />
+                                Humidity is {data.humidity}
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
-
             </div>
-        </div>
+       
     )
 }
 export default Weather

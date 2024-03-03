@@ -1,10 +1,13 @@
 .main{
-    margin-top: 8rem;
+    /* background-image: url("../assets/weather-effects-composition.jpg") ; */
+
 }
 
 .weather-con{
-    background-color: rgba(23, 183, 141, 0.746);
+    background-color: rgba(97, 19, 232, 0.746);
     margin-top: 5rem;
+    border-radius: 3rem;
+   
    
 }
 
@@ -17,12 +20,13 @@
     width: 100px;
     height: 100px;
     margin-right: 1rem;
+    margin-left: 4rem;
 }
 
 .img{
-    width: 140px;
-    height: 120px;
-    margin-left: 9rem;
+    width: 200px;
+    height: 190px;
+    margin-left: 4rem;
 }
 
 .city{
