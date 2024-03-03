@@ -1,0 +1,24 @@
+.main{
+    margin-top: 8rem;
+}
+
+.weather-con{
+    background-color: rgba(23, 183, 141, 0.746);
+    margin-top: 5rem;
+   
+}
+
+.s-img{
+    width: 20px;
+    height: 20px;
+}
+
+.img{
+    width: 140px;
+    height: 120px;
+    margin-left: 9rem;
+}
+
+.city{
+    margin-left: 2rem;
+}

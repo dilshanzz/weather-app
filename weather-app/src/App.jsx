@@ -1,4 +1,6 @@
 import Weather from "./component/Weather"
+// import "../node_modules/bootstrap-icons/icons"
+
 
 function App(){
 

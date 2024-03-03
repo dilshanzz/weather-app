@@ -1,28 +1,117 @@
+import "./Weather.css";
+import sunny from "../assets/sunny_6092898.png";
+import serch from "../assets/find_12363627.png";
+import { useEffect, useState } from "react";
 
 function Weather() {
-let api = "7feba465acef36f12dc3c8e8d685e9fd"
 
-function search(){
-    
-}
+    const [data, setData] = useState({
+        icon:"",
+        celcius: 0,
+        name: "",
+        humidity: 0,
+        windSpeed: 0
+    });
+
+    const [location, setLocation] = useState("");
+   // const cityInput = useRef(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const api = `https://api.weatherapi.com/v1/current.json?key=e9efbd0df6294e5c9fb94321233012&q=${location}`;
+
+                const res = await fetch(api);
+
+                if (!res.ok) {
+                    throw new Error(`HTTP error! Status: ${res.status}`);
+                }
+
+                const resData = await res.json();
+
+                setData({
+                    icon:resData.icon,
+                    celcius: resData.temp_c,
+                    name: resData.location.name,
+                    humidity: resData.humidity,
+                    windSpeed: resData.wind_kph,
+                });
+
+            } catch (e) {
+                console.error("Error fetching weather data:", e)
+            }
+
+        };
+
+        if (location) {
+            fetchData();
+        }
+    }, [location]);
+
+    const citySearch = () => {
+
+        const cityInput = document.getElementById("city-input");
+        if (cityInput.current) {
+            setLocation(cityInput.current.value);
+        }
+    };
+
 
     return (
-        <div className="container-fluid">
-            <div className="container mt-4 col-6 ">
-                <div className="row col-4">
-                    <div class="mb-3 ">
-                        {/* <label for="txt-city" class="form-label"></label> */}
-                        <input type="text" className="form-control" id="txt-city" placeholder="City"></input>
+        <div className="main container  ">
+
+            <div className="container col-4">
+                <div className="row col-3 "></div>
+            </div>
+
+            <div className="container weather-con col-9  ">
+                <div className="row mb-5"></div>
+
+                <div className="row ">
+                    <div className="container  "></div>
+                    <div className="col-3"></div>
+                    <div className="col-5">
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="city-input"
+                            placeholder="Enter city name" />
+
                     </div>
-                </div>
-                <div className=" col-2" >
-                    <button className="btn btn-primary ml-1">Search</button>
-                </div>
-                <div className="container ">
-                    <div className="temp  mt-4 ">24°C</div>
-                    <div className="loc ">London</div>
-                    <div className="humidity">Humidity</div>
-                    <div className="wind">Wind Speed</div>
+                    <div className="container col-4">
+                        <button className="btn btn-primary mb-4" 
+                         onClick={citySearch}>
+                            <img className="s-img" src={serch} alt="search"/>
+                        </button>
+                    </div>
+                    <div >
+                        <div className="row">
+                            <div className="col-2"></div>
+                            <div className="container   col-10 mb-4">
+                                <img className="img" src={sunny} alt="" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div className="row">
+                        <div className="col-2"></div>
+                        <div className="container temp  col-10 mb-4">
+                            The Current tempreature is {data.celcius}°C
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-2"></div>
+                        <div className="container temp  col-10 mb-4">
+                            The Current windspeed is {data.windSpeed} kph
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-2"></div>
+                        <div className="container temp  col-10 mb-4">
+                            The Current humidity is {data.humidity}
+                        </div>
+                    </div>
 
                 </div>
 
