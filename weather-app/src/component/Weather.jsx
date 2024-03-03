@@ -6,15 +6,22 @@ import { useEffect, useState } from "react";
 function Weather() {
 
     const [data, setData] = useState({
-        icon:"",
+        icon:sunny,
         celcius: 0,
-        name: "",
+        name: "London",
         humidity: 0,
         windSpeed: 0
     });
 
     const [location, setLocation] = useState("");
-   // const cityInput = useRef(null);
+
+    const citySearch = () => {
+        const cityInput = document.getElementById("city-input");
+        if (cityInput) {
+            setLocation(cityInput.value);
+        }
+    };
+   
 
     useEffect(() => {
         const fetchData = async () => {
@@ -30,11 +37,11 @@ function Weather() {
                 const resData = await res.json();
 
                 setData({
-                    icon:resData.icon,
-                    celcius: resData.temp_c,
-                    name: resData.location.name,
-                    humidity: resData.humidity,
-                    windSpeed: resData.wind_kph,
+                    icon:`https:${resData.current.condition.icon}`,
+                    celcius: resData.current.temp_c,
+                    name:  resData.location.name,
+                    humidity:  resData.current.humidity,
+                    windSpeed:  resData.current.wind_kph,
                 });
 
             } catch (e) {
@@ -48,13 +55,7 @@ function Weather() {
         }
     }, [location]);
 
-    const citySearch = () => {
-
-        const cityInput = document.getElementById("city-input");
-        if (cityInput.current) {
-            setLocation(cityInput.current.value);
-        }
-    };
+   
 
 
     return (
@@ -88,7 +89,7 @@ function Weather() {
                         <div className="row">
                             <div className="col-2"></div>
                             <div className="container   col-10 mb-4">
-                                <img className="img" src={sunny} alt="" />
+                                <img className="img" src={data.icon} alt="" />
                             </div>
                         </div>
                     </div>
