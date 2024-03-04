@@ -1,7 +1,6 @@
 import "./Weather.css";
 import sunny from "../assets/sunny_6092898.png";
 import serch from "../assets/find_12363627.png";
-import temp from "../assets/temp.png";
 import wind from "../assets/wind.png";
 import hum from "../assets/hum.png";
 import { useEffect, useState } from "react";
@@ -20,6 +19,7 @@ function Weather() {
 
     const citySearch = () => {
         const cityInput = document.getElementById("city-input");
+        // cityInput = cityInput.value
         if (cityInput) {
             setLocation(cityInput.value);
         }
@@ -90,7 +90,7 @@ function Weather() {
                         <div >
                             <div className="row">
                                 <div className="col-2"></div>
-                                <div className="container   col-10 mb-4">
+                                <div className="container   col-10 ">
                                     <img className="img" src={data.icon} alt="" />
                                 </div>
                             </div>
@@ -99,23 +99,26 @@ function Weather() {
 
                         <div className="row">
                             <div className="col-2"></div>
-                            <div className="container temp  col-10 mb-4">
-                                <img className="img-sub" src={temp} alt="" />
-                                Tempreature is {data.celcius}°C
+                            <div className="container temp  col-6 ">
+                                {data.celcius}°C 
+                                
+                            </div>
+                            <div className="city container-fluid d-flex align-items-center justify-content-center ">
+                               {location}
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-2"></div>
-                            <div className="container temp  col-10 mb-4">
+                            <div className="container oth  col-10 mb-4">
                                 <img className="img-sub" src={wind} alt="" />
-                                Windspeed is {data.windSpeed} kph
+                                Windspeed {data.windSpeed} kph
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-2"></div>
-                            <div className="container temp  col-10 mb-4">
+                            <div className="container oth  col-10 mb-4">
                                 <img className="img-sub" src={hum} alt="" />
-                                Humidity is {data.humidity}
+                                Humidity {data.humidity}
                             </div>
                         </div>
 
