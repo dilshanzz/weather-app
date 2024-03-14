@@ -1,9 +1,11 @@
 import "./Weather.css";
-import sunny from "../assets/sunny_6092898.png";
+
 import serch from "../assets/find_12363627.png";
-import wind from "../assets/wind.png";
-import hum from "../assets/hum.png";
+import rainy from "../assets/dana-marin-amsterdamian-O-wN5LK8Q3k-unsplash.jpg"
 import { useEffect, useState } from "react";
+import dry from "../assets/dry.jpg"
+import snow from "../assets/snow.jpg"
+import storms from "../assets/storms.jpg"
 
 function Weather() {
 
@@ -74,7 +76,7 @@ function Weather() {
     return (
 
         <div className="container-fluid">
-            <div className="row">
+            <div className="row mb-1">
                 <div className="container-fluid weather-con col-12  ">
                     <div className="row mb-5"></div>
 
@@ -161,23 +163,57 @@ function Weather() {
                     </div>
                 </div>
             </div>
-            <div>
-                <div className="card"  style={{"width: 18rem;"}}>
-                    <img src="..." className="card-img-top" alt="..." />
+            <div className="container-fluid col-12 ">
+           
+               <div className="row">
+               
+               <div className="card col-2"  >
+                    <img src={rainy} className="card-img-top" alt="..." />
                     <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <ul className="list-group list-group-flush">
-                        <li className="list-group-item">An item</li>
-                        <li className="list-group-item">A second item</li>
-                        <li className="list-group-item">A third item</li>
-                    </ul>
+                        <h5 className="card-title">Most raining cities in the world</h5>
+                    </div>  
                     <div className="card-body">
-                        <a href="#" className="card-link">Card link</a>
-                        <a href="#" className="card-link">Another link</a>
+                        <a href="https://www.thetravel.com/cities-with-the-highest-rains-in-the-world/" className="card-link">Click here</a>
+                        
                     </div>
                 </div>
+
+                
+                <div className="card col-2 mr-4"  >
+                    <img  src={dry} className="card-img-top card-imgs" alt="..." />
+                    <div className="card-body">
+                        <h5 className="card-title">Most driest cities in the world</h5>
+                    </div>  
+                    <div className="card-body">
+                        <a href="https://www.livescience.com/30627-10-driest-places-on-earth.html" className="card-link">Click here</a>
+                        
+                    </div>
+                </div>
+               
+                <div className="card col-2"  >
+                    <img  src={snow} className="card-img-top card-imgs" alt="..." />
+                    <div className="card-body">
+                        <h5 className="card-title">Most snowiest cities in the world</h5>
+                    </div>  
+                    <div className="card-body">
+                        <a href="https://www.tripsavvy.com/the-worlds-top-snowiest-cities-4582630" className="card-link">Click here</a>
+                        
+                    </div>
+                </div>
+                
+                <div className="card col-2"  >
+                    <img  src={storms} className="card-img-top card-imgs" alt="..." />
+                    <div className="card-body">
+                        <h5 className="card-title">About storms</h5>
+                    </div>  
+                    <div className="card-body">
+                        <a href="https://www.britannica.com/science/storm" className="card-link">Click here</a>
+                        
+                    </div>
+                </div>
+               
+               </div>
+                
             </div>
         </div>
 

@@ -29,10 +29,18 @@
     background-repeat: no-repeat; /* Prevent image from repeating */
     background-position: center; /* Center the image */
     height: 25rem;
+   
+}
+
+.card{
+    width: 18rem;
+    margin-left: 6rem;
     
-   
-   
-   
+    
+}
+
+.marg{
+    margin-right: 6rem;
 }
 
 .feel{
@@ -59,5 +67,9 @@
 
 .city{
     margin-left: 2rem;
+}
+
+.card-imgs{
+    height: 170px;
 }
 
