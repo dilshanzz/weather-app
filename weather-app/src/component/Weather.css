@@ -1,5 +1,18 @@
 .temp{
-    font-size: 80px;
+    font-size: 60px;
+    border-radius: 1rem;
+    
+}
+
+.other{
+    border-radius: 0.5rem;
+    font-size: x-large;
+}
+.other1{
+    border-radius: 1rem;
+    font-size: x-large;
+    height: 10rem;
+    
 }
 .city{
     font-size: xx-large;
@@ -7,15 +20,23 @@
 }
 
 .oth{
-    font-size: x-large;
+    
 }
 
 .weather-con{
-    background-color: #2a30d4be;
-    margin-top: 5rem;
-    border-radius: 1rem;
+    background-image: url("../assets/beautiful-scenery-beach-with-sunset-clouds.jpg") ;
+    background-size: cover; /* Adjust to 'contain' if you want the whole image to be visible */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    background-position: center; /* Center the image */
+    height: 25rem;
+    
    
    
+   
+}
+
+.feel{
+    font-size: large;
 }
 
 .s-img{
@@ -39,3 +60,4 @@
 .city{
     margin-left: 2rem;
 }
+
